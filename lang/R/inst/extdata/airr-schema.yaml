@@ -97,6 +97,25 @@ Attributes:
                         value:
                             type: string
                             description: Ontology value for the top node term
+        extension:
+            type: object
+            description: >
+                Information required for MiAIRR Extensions (XTs), which specific fields that only apply under certain
+                conditions and are therefore not considered to be part of the MiAIRR core standard.
+            properties:
+                id:
+                    type: string
+                    description: Identifier of the extension
+                name:
+                    type: string
+                    description: Human-readable name of the MiAIRR extension
+                trigger_key:
+                    type: string
+                    description: AIRR Schema field that triggers the extension. This SHOULD be an enum/ontology field.
+                trigger_value:
+                    type: string
+                    description: Value in trigger_key that triggers the extension. This SHOULD be an enum/ontology field.
+
 
 
 # The overall study with a globally unique study_id
@@ -386,28 +405,75 @@ Subject:
                 set: 1
                 subset: subject
                 name: Ancestry population
+                ontology:
+                    draft: true
+                    name: GAZ
+                    url: https://www.ebi.ac.uk/ols/ontologies/gaz
+                    top_node:
+                        id: GAZ:00000448
+                        value: geographic location
+                extension:
+                    id: MXT001
+                    name: Human Population Genetics XT
+                    trigger_key: Subject.organism.id
+                    trigger_value: 9606
+        country_birth:
+            type: string
+            description: Self-reported country of birth of the subject
+            example:
+                id: GAZ:00002939
+                value: Poland
+            x-airr:
+                miairr: true
+                required: true
+                nullable: true
+                set: 1
+                subset: subject
+                name: Country of birth
+                ontology:
+                    draft: true
+                    name: GAZ
+                    url: https://www.ebi.ac.uk/ols/ontologies/gaz
+                    top_node:
+                        id: GAZ:00000448
+                        value: geographic location
+                extension:
+                    id: MXT001
+                    name: Human Population Genetics XT
+                    trigger_key: Subject.organism.id
+                    trigger_value: 9606
         ethnicity:
             type: string
             description: Ethnic group of subject (defined as cultural/language-based membership)
             example: English, Kurds, Manchu, Yakuts (and other fields from Wikipedia)
             x-airr:
-                miairr: true
-                required: true
+                miairr: false
+                required: false
                 nullable: true
                 set: 1
                 subset: subject
                 name: Ethnicity
+                extension:
+                    id: MXT001
+                    name: Human Population Genetics XT
+                    trigger_key: Subject.organism.id
+                    trigger_value: 9606
         race:
             type: string
             description: Racial group of subject (as defined by NIH)
             example: White, American Indian or Alaska Native, Black, Asian, Native Hawaiian or Other Pacific Islander, Other 
             x-airr:
-                miairr: true
-                required: true
+                miairr: false
+                required: false
                 nullable: true
                 set: 1
                 subset: subject
                 name: Race
+                extension:
+                    id: MXT001
+                    name: Human Population Genetics XT
+                    trigger_key: Subject.organism.id
+                    trigger_value: 9606
         strain_name:
             type: string
             description: Non-human designation of the strain or breed of animal used
@@ -626,6 +692,31 @@ Sample:
                 set: 2
                 subset: sample
                 name: Collection time event
+        collection_country:
+            type: string
+            description: Country in which the sample was taken
+            example:
+                id: GAZ:00002939
+                value: Poland
+            x-airr:
+                miairr: true
+                required: true
+                nullable: true
+                set: 1
+                subset: subject
+                name: Country of sample collection
+                ontology:
+                    draft: true
+                    name: GAZ
+                    url: https://www.ebi.ac.uk/ols/ontologies/gaz
+                    top_node:
+                        id: GAZ:00000448
+                        value: geographic location
+                extension:
+                    id: MXT001
+                    name: Human Population Genetics XT
+                    trigger_key: Subject.organism.id
+                    trigger_value: 9606
         biomaterial_provider:
             type: string
             description: Name and address of the entity providing the sample
