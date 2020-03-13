@@ -1,6 +1,130 @@
 ============
+Call 01/2020
+============
+
+
+------
+Agenda
+------
+
+Decisions
+=========
+
+*  Human Population Genetics XT (`#264`_, `#265`_)
+
+
+Follow-up
+=========
+
+*  DataRep decision on ``organism`` field
+*  DataRep on Set 6
+*  Object definition for ``receptor`` and ``cell`` (see
+   `Christian's comment of 2019-12-24`_ on `#273`_)
+*  List of To-Does for MiAIRR v2 (`#305`_)
+
+
+New Topics
+==========
+
+*  Should fields be non-nullable based on the availability of the
+   information to the primary data depository (current situation) or the
+   necessity of the information for meaningful interpretation? Note that
+   the current situation can make it hard for third-party annotators
+   (`#310`_).
+
+   *  A few things that non-nullable status could indicate:
+
+      *  Criticality to MiAIRR as a Standard: Fields which one MUST
+         always have, as decided by the AIRR Community.
+      *  Field one always is expected to have: Not necessarily critical
+         to MiAIRR, but hard to understand how one could do a study and
+         not have it...
+   *  Noted that many of the non-nullable fields are controlled
+      vocabularies with ``NULL`` like options such as
+      ``library_generation_method``:``other`` and ``physical_linkage``:
+      ``none``. Perhaps for non-nullable fields this should be the norm.
+      We should consider carefully those fields that have limited
+      possible values (booleans, controlled vocabularies lacking
+      ``NULL``-like terms) and ensure that if they do not exist, we
+      really want that data be not AIRR-compliant.
+*  Should we switch notes from Google Docs to Github?
+*  Review `CEDAR Templates`_
+
+
+-------
+Minutes
+-------
+
+Meta
+====
+
+* Date: Fri, 2020-01-17 14:30 UTC
+* Present: Brian, Christian, Francisco, John, Sri
+
+
+Decisions
+=========
+
+*  **Approved** Human Population Genetics XT (`#264`_, `#265`_)
+*  **Approved** moving/introducing the fields ``ancestry_population``,
+   ``country_birth`` and ``collection_country`` to/in an Extension.
+*  As ``ethnicity`` and ``race`` have neither a consistent scientific
+   concept nor globally applicable ontologies, they are **removed** from
+   MiAIRR and its extensions. Note that annotators who wish to provide
+   this information can still do so using these keywords as ``optional``
+   free text fields.
+*  The integration of extensions into the schema still needs to be
+   discussed with DataRep. Therefore a first draft has now been commited
+   (`#318`_).
+
+
+Follow-up
+=========
+
+*  DataRep deferred the decision on whether to rename ``organism`` to
+   ``species``, will bring it up again in `Call 02/2020`_.
+*  DataRep has acknowledged that they are now the owner of Set 6 (see
+   Nov/Dec minutes)
+*  We are now collecting things that need to be included for MiAIRR v2
+   in `#305`_. In most cases the things will/should also have an entry
+   of their own on the issue tracker, in which case these should be
+   labeled with the ``AIRRv2.0`` and the ``MiAIRR`` tag in addition.
+*  ``cell`` and ``receptor`` objects (`#273`_, `#211`_, `#206`_): There
+   is now an emerging consensus based on
+   `Christian's comment of 2019-12-24`_ on `#273`_. This has been
+   approved by DataRep, Sri is now working on a schema definition. Note
+   that ``pair_id`` never made it into an official release, thus it is
+   simple to deprecate it.
+
+
+New Topics
+==========
+
+*  Revisit MiAIRR non-nullable fields (`#310`_): Currently non-nullable
+   status (aka ``required``) is based on the near-certain availability
+   of the information to the primary data depository. However, it turns
+   out that this makes it hard for third-party annotators, therefore it
+   has been proposed to revisit these fields based on the criterium
+   whether the information is strictly required for meaningful
+   interpretation of the annotated data.
+*  John will soon make the CEDAR AIRR templates publicly available and
+   asks for comments (link to `CEDAR Templates`_). Note that these
+   templates are identical to the information on the actual CEDAR
+   submission site, it is just accessible without requiring a login. In
+   case you would like to comment on this, please get in contact with
+   John until Thu, 2020-01-23.
+*  Discussed whether it would be worthwhile to put the agendas and
+   minutes on Github instead of GDocs. This would resolve some of the
+   overhead that the current workflow produces. Brian comments that
+   ComRepo has experimented with this, but not adapted a Github workflow
+   as copyediting can be an issue as documents will be public. Will
+   discuss again in the next call.
+
+   
+============
 Call 02/2020
 ============
+
 
 ------
 Agenda
@@ -10,8 +134,7 @@ Follow-up
 =========
 
 *  Object definition for ``receptor`` and ``cell`` (in `#320`_, also
-   see Christian's `comment in #273`__)
-.. __ : https://github.com/airr-community/airr-standards/issues/273#issuecomment-568649516
+   see `Christian's comment of 2019-12-24`_ in `#273`_)
 *  List of To-Does for MiAIRR v2 in `#305`_
 *  Should fields be non-nullable based on the availability of the
    information to the primary data depository (current situation) or
@@ -112,7 +235,8 @@ Follow-up
    it clearly labeled).
 *  Switching to Github for agendas and minutes: Again no objections,
    starting test run for this call.
- 
+
+
 MiAIRR requirement levels
 =========================
 
@@ -189,15 +313,23 @@ New Topics
 
 .. == Unlisted Links to AIRR Standards Github issues and pull requests ==
 
+.. _`#206`: https://github.com/airr-community/airr-standards/issues/206
+.. _`#211`: https://github.com/airr-community/airr-standards/issues/211
+.. _`#264`: https://github.com/airr-community/airr-standards/issues/264
+.. _`#265`: https://github.com/airr-community/airr-standards/issues/265
+.. _`#273`: https://github.com/airr-community/airr-standards/issues/273
 .. _`#279`: https://github.com/airr-community/airr-standards/issues/279
 .. _`#297`: https://github.com/airr-community/airr-standards/issues/297
 .. _`#305`: https://github.com/airr-community/airr-standards/issues/305
 .. _`#310`: https://github.com/airr-community/airr-standards/issues/310
+.. _`#318`: https://github.com/airr-community/airr-standards/pull/318
 .. _`#319`: https://github.com/airr-community/airr-standards/pull/319
 .. _`#320`: https://github.com/airr-community/airr-standards/issues/320
 .. _`#324`: https://github.com/airr-community/airr-standards/pull/324
 .. _`#328`: https://github.com/airr-community/airr-standards/issues/328
 .. _`#330`: https://github.com/airr-community/airr-standards/issues/330
+
+.. _`Christian's comment of 2019-12-24`: https://github.com/airr-community/airr-standards/issues/273#issuecomment-568649516
 
 .. == Other Unlisted Links ==
 .. _`CEDAR Templates`: https://openview.metadatacenter.org/templates/https:%2F%2Frepo.metadatacenter.org%2Ftemplates%2Fea716306-5263-4f7a-9155-b7958f566933
