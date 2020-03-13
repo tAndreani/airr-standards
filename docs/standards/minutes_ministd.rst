@@ -2,7 +2,6 @@
 Call 01/2020
 ============
 
-
 ------
 Agenda
 ------
@@ -120,11 +119,10 @@ New Topics
    as copyediting can be an issue as documents will be public. Will
    discuss again in the next call.
 
-   
+
 ============
 Call 02/2020
 ============
-
 
 ------
 Agenda
@@ -211,7 +209,6 @@ New Topics
 Minutes
 -------
 
-
 Meta
 ====
 
@@ -223,7 +220,7 @@ Follow-up
 =========
 
 *  DataRep deferred the decision on renaming ``organism`` species
-   again, will bring it up again in March
+   again, will bring it up again in `Call 03/2020`_.
 *  Object definition ``cell`` and related data schema: Discussed at ComRepo
    call, Sri will go ahead with a schema and API implementation that
    initially will **not** support a tabular serialization (as it requires
@@ -244,7 +241,7 @@ MiAIRR requirement levels
    nullable status of field, how to indicate this to users and how to
    represent it in the data schema.
 *  We currently have three requirement levels (adopted from RFC2119)
-   in table1_, where:
+   in table200201_, where:
 
    *  "present" means that a field exists in a metadata description
    *  "NULL" means that a field has a ``NULL`` value (as in SQL) or a
@@ -258,7 +255,7 @@ MiAIRR requirement levels
 
 .. _`BioSample attributes`: https://www.ncbi.nlm.nih.gov/biosample/docs/attributes/
 
-.. _table1:
+.. _table200201:
 
 +-----------------+-----------------+-------------+
 | level           | MUST be present | CAN be NULL |
@@ -293,7 +290,7 @@ MiAIRR requirement levels
    However, the potential confusion with OpenAPI should be resolved.
 *  As the terms can be changed later on, we will try to find a reason-
    able set until the next call. All suggestions welcome.
-   
+
 
 New Topics
 ==========
@@ -309,12 +306,80 @@ New Topics
    metadata, so in the real world nothing depends on this.
 *  NCBI mapping needs to be updated, documented in `#330`_
 *  Format change is could be relevant to CEDAR, who have noted this.
+*  Topic can be closed, no follow-up in March until issues arise.
 
 
+============
+Call 03/2020
+============
+
+------
+Agenda
+------
+
+Follow-up
+=========
+
+*  DataRep has decided to rename ``organism`` to ``species``. Their
+   change will likely go into v1.3 and therefore predate our change,
+   which is slated for v2.0. DataRep will also discuss how to annotate
+   the renaming (`#248`_).
+*  Object definition ``cell`` and related data schema: Schema is now
+   in branch XXX. We however need to discuss about:
+
+   *  "True" ``Repertoires`` and "Meta"-``Repertoires`` (the former ones
+      contain each cell object only once, the latter ones can contain
+      them multiple time (either copied or linked).
+   *  If a ``Rearrangement`` is defined as an *observed nucleic acid*
+      how do we represent UMI- and CellID-based collapsing. Is there
+      a separate object for it?
+
+*  MiAIRR requirement levels:
+
+   *  There is a general consensus in DataRep and ComRepo to move away
+      from the current RFC2119 terms, as they can create confusion with
+      the OpenAPI ``required`` term.
+   *  A current suggestion are the RDA-inspired terms ``essential``,
+      ``important`` and ``useful`` (see `#342`_).
+   *  John noted that we need to distinguish between terms for
+      individual fields and qualification of the whole metadata record
+      for a given use case. Therefore, for most fields the requirement
+      levels could be differ between use cases. Therefore he suggests
+      that there are mainly two options that would potentially work:
+
+      1. Use a binary criterium (e.g. ``MiAIRR compliant``), which
+         applies if and only if all required fields are provided. The
+         non-nullable requirement could be relabeled as a question of
+         the ontology/vocabulary for the field.
+      2. Spell out the individual requirement for each use case (or
+         group of use cases).
+
+*  Switch to Github for agendas and minutes: First round of feedback.
+
+
+New Topics
+==========
+
+*  Merger of AIRR Standards WG: ComRepo, DataRep and MiniStd currently
+   have 4--5 calls every month in which a core group of 5--6 people
+   frequently talk about similar topics to an extended group of
+   participants. We would like to see whether we can increase the
+   efficiency of this process by having one joint meeting per month,
+   covering the topics of MiniStd and DataRep and the API parts of
+   ComRepo. In addition the original WG can have additional calls
+   between the general calls (maybe with a fixed schedule and cancel
+   if not necessary). If this works out and lead to more fun, less
+   meetings and/or increased productivity, we would propose an
+   official merger of the WGs at the next AIRR-C meeting.
+
+
+.. ======================================================================
 .. == Unlisted Links to AIRR Standards Github issues and pull requests ==
+.. ======================================================================
 
 .. _`#206`: https://github.com/airr-community/airr-standards/issues/206
 .. _`#211`: https://github.com/airr-community/airr-standards/issues/211
+.. _`#248`: https://github.com/airr-community/airr-standards/issues/248
 .. _`#264`: https://github.com/airr-community/airr-standards/issues/264
 .. _`#265`: https://github.com/airr-community/airr-standards/issues/265
 .. _`#273`: https://github.com/airr-community/airr-standards/issues/273
@@ -328,6 +393,8 @@ New Topics
 .. _`#324`: https://github.com/airr-community/airr-standards/pull/324
 .. _`#328`: https://github.com/airr-community/airr-standards/issues/328
 .. _`#330`: https://github.com/airr-community/airr-standards/issues/330
+.. _`#342`: https://github.com/airr-community/airr-standards/issues/342
+
 
 .. _`Christian's comment of 2019-12-24`: https://github.com/airr-community/airr-standards/issues/273#issuecomment-568649516
 
