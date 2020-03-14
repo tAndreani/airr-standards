@@ -1,6 +1,96 @@
-============
-Call 01/2020
-============
+====================
+MiniStd Call 12/2019
+====================
+
+------
+Agenda
+------
+
+Follow-up
+=========
+
+*  Current NCBI submission stats
+*  Rename MiAIRR field "Organism" to "Species" (`#266`_)
+*  Inclusion of species information into cell and locus fields (`#260`_)
+*  Human Population Genetics XT (`#264`_, `#265`_)
+*  DataRep Discussion (`#248`_):
+
+   *  How to document changes to the standard in a transparent fashion?
+   *  How to document renaming (instead of deprecation) of fields?
+
+*  Relationship between MiAIRR Set 6 and DataRep ``rearrangement``
+   object
+*  Adding gene and gene family to DataRep spec but not MiAIRR (`#258`_)
+*  Talking about a Spec definition for cell (`#211`_)
+
+
+-------
+Minutes
+-------
+
+Meta
+====
+
+*  Date: Fri, 2019-12-13 14:30 UTC
+*  Present: Brian, Christian, Corey, Francisco, Florian, Marcos, Sri
+
+
+Decisions
+=========
+
+*  Renaming "Organism" field to "Species" was **approved**. After we
+   discussed this again, the renaming was put to a vote. It was decided
+   to perform this renaming in the upcoming v2 release of MiAIRR and the
+   AIRR schema (see `#266`_).
+*  Relation between MiAIRR Set 6 and DataRep ``rearrangement``. See
+   minutes of `MiniStd Call 11/2019`_ for a summary. DataRep is fine
+   with the suggested procedure (DataRep governs the fields, MiniStd
+   simply declares whether a field is "minimal" in terms of reporting).
+   We **approved** this as the new mode of operation, which will be
+   included in the documentation until the v2 release, although it is
+   formally independent of it.
+
+
+Follow-up
+=========
+
+*  Human Population Genetics XT: Due to time restrictions this was not
+   yet brought up in a GLDB call. Therefore comments on the respective
+   tickets (`#264`_, `#265`_) were requested via the GLDB mailing list
+   until our next call.
+*  Makeing renaming of fields trackable: Renaming (not only deprecation)
+   is now included `#248`_ and defined as a To-Do for v2.0 (`#305`_).
+*  Addition of further gene call fields to ``rearrangement`` (`#258`_):
+   This is a bigger discussion involving ComRepo, DataRep and GLDB.
+   However, as it does not affect the existence of the ``[vdj]_call``
+   fields, which we require for Set 6, it is **not** a MiniStd topic.
+*  Inclusion of species information into cell and locus fields: As
+   discussed during the `MiniStd Call 10/2019`_ and decided in
+   `MiniStd Call 11/2019`_, we want to introduce fields to provide
+   species information for the ``cell_*`` and ``locus`` fields to 
+   address issue `#137`_. The respective changes were introduced in PR
+   `#260`_, however it turns out that it is problematic to add
+   ontology-controlled fields to the ``rearrangement`` object (`#278`_),
+   i.e., for ``locus``. Therefore only ``cell_species`` was added to the
+   schema, while ``locus_species`` has been reverted (via `#281`_). Will
+   follow up with DataRep and ComRepo on potential solutions.
+
+
+New topics
+==========
+
+*  Define ``cell`` and ``receptor`` objects: The ongoing work to create
+   API endpoints to access single-cell data (`#211`_) has sparked some
+   discussion about the ``cell`` and ``receptor`` entities and their
+   respective (potential) IDs ``cell_id`` and ``pair_id`` (see lengthy
+   discussion in `#273`_). We agree that it would be important to
+   include a representation of these objects in the schema and adapt the
+   API endpoints accordingly. Will follow up in `MiniStd Call 01/2020`_.
+
+
+====================
+MiniStd Call 01/2020
+====================
 
 ------
 Agenda
@@ -81,7 +171,7 @@ Follow-up
 =========
 
 *  DataRep deferred the decision on whether to rename ``organism`` to
-   ``species``, will bring it up again in `Call 02/2020`_.
+   ``species``, will bring it up again in `MiniStd Call 02/2020`_.
 *  DataRep has acknowledged that they are now the owner of Set 6 (see
    Nov/Dec minutes)
 *  We are now collecting things that need to be included for MiAIRR v2
@@ -120,9 +210,9 @@ New Topics
    discuss again in the next call.
 
 
-============
-Call 02/2020
-============
+====================
+MiniStd Call 02/2020
+====================
 
 ------
 Agenda
@@ -220,7 +310,7 @@ Follow-up
 =========
 
 *  DataRep deferred the decision on renaming ``organism`` species
-   again, will bring it up again in `Call 03/2020`_.
+   again, will bring it up again in `MiniStd Call 03/2020`_.
 *  Object definition ``cell`` and related data schema: Discussed at ComRepo
    call, Sri will go ahead with a schema and API implementation that
    initially will **not** support a tabular serialization (as it requires
@@ -309,9 +399,9 @@ New Topics
 *  Topic can be closed, no follow-up in March until issues arise.
 
 
-============
-Call 03/2020
-============
+====================
+MiniStd Call 03/2020
+====================
 
 ------
 Agenda
@@ -377,13 +467,18 @@ New Topics
 .. == Unlisted Links to AIRR Standards Github issues and pull requests ==
 .. ======================================================================
 
+.. _`#137`: https://github.com/airr-community/airr-standards/issues/137
 .. _`#206`: https://github.com/airr-community/airr-standards/issues/206
 .. _`#211`: https://github.com/airr-community/airr-standards/issues/211
 .. _`#248`: https://github.com/airr-community/airr-standards/issues/248
+.. _`#260`: https://github.com/airr-community/airr-standards/pull/260
 .. _`#264`: https://github.com/airr-community/airr-standards/issues/264
 .. _`#265`: https://github.com/airr-community/airr-standards/issues/265
+.. _`#266`: https://github.com/airr-community/airr-standards/issues/266
 .. _`#273`: https://github.com/airr-community/airr-standards/issues/273
+.. _`#278`: https://github.com/airr-community/airr-standards/issues/278
 .. _`#279`: https://github.com/airr-community/airr-standards/issues/279
+.. _`#281`: https://github.com/airr-community/airr-standards/pull/281
 .. _`#297`: https://github.com/airr-community/airr-standards/issues/297
 .. _`#305`: https://github.com/airr-community/airr-standards/issues/305
 .. _`#310`: https://github.com/airr-community/airr-standards/issues/310
