@@ -1,4 +1,107 @@
 ====================
+MiniStd Call 11/2019
+====================
+
+------
+Agenda
+------
+
+Follow-up
+=========
+
+*  Species information for cell and locus annotations (`#137`_)
+*  Rename MiAIRR field "Organism" to "Species" (`#266`_)
+*  Human Population Genetics XT (`#264`_)
+*  HVP data @ NCBI?
+
+
+-------
+Minutes
+-------
+
+Meta
+====
+
+*  Date: Fri, 2019-11-08 14:30 UTC
+*  Present: Ahmad, Brian, Christian, Florian, Francisco, John, Sri
+
+
+Decisions
+=========
+
+*  Inclusion of species information for cell and locus annotations
+   (`#137`_) was **approved**.
+
+   *  Introduction of the fields ``cell_species`` and ``locus_species``,
+      will be added to the schema via `#260`_.
+   *  Principle of "layering" (i.e. specialized keys deeper down in in
+      the schema hierachy can override more general definitions of the
+      same feature that took place further up) will be added to the
+      docs.
+
+
+Follow-up
+=========
+
+*  Rename "Organism" to "Species":
+
+   *  The designation for this field is formally incorrect as an
+      organism is an individual of a species, not the species itself.
+      However, it is the latter one that we are aiming to annotate in
+      this field. This could lead to confusion when using the term as a
+      suffix (e.g., `#137`_). The current term is derived from the
+      `INSDC Feature Table`_, which uses rather creative semantics to
+      make it fit.
+   *  There is a consensus that the MiAIRR name should be changed. As
+      this breaks compatibility it will be slated for inclusion in
+      AIRRv2. Whether the key ``organism`` will be changed at the same
+      time, is up for discussion with with DataRep (`#266`_).
+
+*  Human Population Genetics XT: We will get feedback from GLDB WG in
+   their November call. The proposal will be put to a vote in
+   `MiniStd Call 12/2019`_, please comment on Github (`#264`_, `#265`_).
+
+
+New topics
+==========
+
+*  Documentation of effective changes to the standard/schema: While
+   nearly all changes made to the standard over the last two years are
+   documented in some Github ticket, there is no comprehensive log that
+   would summarize all changes. DataRep will discuss how they think this
+   can be done with creating too much overhead.
+*  Deprecation vs. renaming of fields: While we have a procedure to
+   document deprecation of fields (`#248`_), it is unclear how to
+   document renaming, especially how to keep the information what the
+   new field name is.
+*  Relation between MiAIRR Set 6 and DataRep ``Rearrangement``:
+
+   *  This has been an area of overlapping responsibility for some time.
+      Although it has not been an issue until now that two WG basically
+      define similar items, it is probably time to get this sorted out.
+   *  As DataRep is the larger stakeholder, the proposal is that they
+      set the standard definition for rearrangement data (e.g, as
+      published in [Vander_Heiden_2018]_). The MiAIRR "Set 6" would then
+      be described as the subset of rearrangement fields from the
+      DataRep standard that are recommended as the minimal information
+      that one should store in INSDC repositories. For these fields,
+      MiniStd will provide a mechanism for mapping the data to the
+      `INSDC Feature Table`_.
+   *  Essentially, DataRep becomes the owner/definer of rearrangement
+      data fields. MiniStd would no longer define these fields, but it
+      would identify a subset of the rearrangement fields defined in the
+      DataRep standard that it considers minimal via the inclusion of
+      these fields into MiAIRR Set 6. In addition, implementations of
+      MiAIRR would provide a mechanism/procedure for mapping those
+      minimal rearrangement fields to the INSDC repositories.
+   *  DataRep will discuss this on Monday.
+
+*  John: Are there current statistics on how many AIRR data sets are
+   available via SRA/Genbank/TLS? No, Christian will collect these
+   numbers for the next call.
+
+
+====================
 MiniStd Call 12/2019
 ====================
 
@@ -11,7 +114,8 @@ Follow-up
 
 *  Current NCBI submission stats
 *  Rename MiAIRR field "Organism" to "Species" (`#266`_)
-*  Inclusion of species information into cell and locus fields (`#260`_)
+*  Inclusion of species information for cell and locus annotations
+   (`#260`_)
 *  Human Population Genetics XT (`#264`_, `#265`_)
 *  DataRep Discussion (`#248`_):
 
@@ -64,7 +168,7 @@ Follow-up
    This is a bigger discussion involving ComRepo, DataRep and GLDB.
    However, as it does not affect the existence of the ``[vdj]_call``
    fields, which we require for Set 6, it is **not** a MiniStd topic.
-*  Inclusion of species information into cell and locus fields: As
+*  Inclusion of species information for cell and locus annotation: As
    discussed during the `MiniStd Call 10/2019`_ and decided in
    `MiniStd Call 11/2019`_, we want to introduce fields to provide
    species information for the ``cell_*`` and ``locus`` fields to 
@@ -74,6 +178,27 @@ Follow-up
    i.e., for ``locus``. Therefore only ``cell_species`` was added to the
    schema, while ``locus_species`` has been reverted (via `#281`_). Will
    follow up with DataRep and ComRepo on potential solutions.
+*  Current NCBI submission stats: Pulled from NCBI based on the "AIRR"
+   keyword (note that not all submitted studies include this). Results
+   in table191201_ are queried via
+   ``https://www.ncbi.nlm.nih.gov/nuccore/?term=AIRR%5BKeyword%5D``
+   and show TLS record counts aggregated by BioProject ID:
+
+.. _table191201
+
++-------------+---------+
+| BioProject  | records |
++=============+=========+
+| PRJNA545339 |      12 |
++-------------+---------+
+| PRJNA336331 |       1 |
++-------------+---------+
+| PRJNA488042 |      20 |
++-------------+---------+
+| PRJNA520929 |      62 |
++-------------+---------+
+| PRJNA338795 |      93 |
++-------------+---------+
 
 
 New topics
@@ -106,7 +231,7 @@ Follow-up
 =========
 
 *  DataRep decision on ``organism`` field
-*  DataRep on Set 6
+*  DataRep is now the owner MiAIRR Set 6 fields
 *  Object definition for ``receptor`` and ``cell`` (see
    `Christian's comment of 2019-12-24`_ on `#273`_)
 *  List of To-Does for MiAIRR v2 (`#305`_)
@@ -172,8 +297,9 @@ Follow-up
 
 *  DataRep deferred the decision on whether to rename ``organism`` to
    ``species``, will bring it up again in `MiniStd Call 02/2020`_.
-*  DataRep has acknowledged that they are now the owner of Set 6 (see
-   Nov/Dec minutes)
+*  DataRep has acknowledged that they are now the owner of the fields
+   in Set 6 (see minutes of `MiniStd Call 11/2019`_ and
+   `MiniStd Call 12/2019`_)
 *  We are now collecting things that need to be included for MiAIRR v2
    in `#305`_. In most cases the things will/should also have an entry
    of their own on the issue tracker, in which case these should be
@@ -309,17 +435,17 @@ Meta
 Follow-up
 =========
 
-*  DataRep deferred the decision on renaming ``organism`` species
+*  DataRep deferred the decision on renaming ``organism`` to ``species``
    again, will bring it up again in `MiniStd Call 03/2020`_.
-*  Object definition ``cell`` and related data schema: Discussed at ComRepo
-   call, Sri will go ahead with a schema and API implementation that
-   initially will **not** support a tabular serialization (as it requires
-   quite some nesting). Information on data schema can be found here:
-   https://github.com/airr-community/airr-standards/issues/320#issuecomment-591416785
-*  `CEDAR Templates`_: Confirmed that templates and their elements can be
-   publicly visible (not requiring login). Also confirmed that CEDAR's
-   version number can be distinct from MiAIRR version (assuming that
-   it clearly labeled).
+*  Object definition ``cell`` and related data schema: Discussed at
+   ComRepo call, Sri will go ahead with a schema and API implementation
+   that initially will **not** support a tabular serialization (as it
+   requires quite some nesting). Information on data schema can be found
+   in `Sri's comment of 2020-02-26`_.
+*  `CEDAR Templates`_: Confirmed that templates and their elements can
+   be publicly visible (not requiring login). Also confirmed that
+   CEDAR's version number can be distinct from MiAIRR version (assuming
+   that it clearly labeled).
 *  Switching to Github for agendas and minutes: Again no objections,
    starting test run for this call.
 
@@ -342,8 +468,6 @@ MiAIRR requirement levels
    *  MiAIRR field are by default ``recommended`` as they are part of
       a minimal standard and thus MUST be present. Some MiAIRR fields
       might be ``required`` but never ``optional``
-
-.. _`BioSample attributes`: https://www.ncbi.nlm.nih.gov/biosample/docs/attributes/
 
 .. _table200201:
 
@@ -385,18 +509,17 @@ MiAIRR requirement levels
 New Topics
 ==========
 
-``read_length`` field
----------------------
+*  ``read_length`` field
 
-*  Moved ``*read_length`` to Set 4 in `#324`_, merged.
-*  Strictly spoken, the addition of the other ``set: 4`` fields already
-   broke compatibility as they are new requirements that were not
-   present in AIRR v1.0. However ``set: 4`` is a dark place for MiAIRR
-   anyhow, as it is just defined as raw data (i.e., not mandatory
-   metadata, so in the real world nothing depends on this.
-*  NCBI mapping needs to be updated, documented in `#330`_
-*  Format change is could be relevant to CEDAR, who have noted this.
-*  Topic can be closed, no follow-up in March until issues arise.
+   *  Moved ``*read_length`` to Set 4 in `#324`_, merged.
+   *  Strictly spoken, the addition of the other ``set: 4`` fields
+      already broke compatibility as they are new requirements that were
+      not present in AIRRv1.0. However ``set: 4`` is a dark place for
+      MiAIRR anyhow, as it is just defined as raw data (i.e., not
+      mandatory metadata, so in the real world nothing depends on this).
+   *  NCBI mapping needs to be updated, documented in `#330`_
+   *  Format change is could be relevant to CEDAR, who have noted this.
+   *  Topic can be closed, no follow-up in March until issues arise.
 
 
 ====================
@@ -471,6 +594,7 @@ New Topics
 .. _`#206`: https://github.com/airr-community/airr-standards/issues/206
 .. _`#211`: https://github.com/airr-community/airr-standards/issues/211
 .. _`#248`: https://github.com/airr-community/airr-standards/issues/248
+.. _`#258`: https://github.com/airr-community/airr-standards/issues/258
 .. _`#260`: https://github.com/airr-community/airr-standards/pull/260
 .. _`#264`: https://github.com/airr-community/airr-standards/issues/264
 .. _`#265`: https://github.com/airr-community/airr-standards/issues/265
@@ -492,6 +616,9 @@ New Topics
 
 
 .. _`Christian's comment of 2019-12-24`: https://github.com/airr-community/airr-standards/issues/273#issuecomment-568649516
+.. _`Sri's comment of 2020-02-26`_:    https://github.com/airr-community/airr-standards/issues/320#issuecomment-591416785
 
 .. == Other Unlisted Links ==
 .. _`CEDAR Templates`: https://openview.metadatacenter.org/templates/https:%2F%2Frepo.metadatacenter.org%2Ftemplates%2Fea716306-5263-4f7a-9155-b7958f566933
+.. _`INSDC Feature Table`: http://www.insdc.org/documents/feature-table
+.. _`BioSample attributes`: https://www.ncbi.nlm.nih.gov/biosample/docs/attributes/
