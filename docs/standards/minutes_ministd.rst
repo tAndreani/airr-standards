@@ -1,4 +1,81 @@
 ====================
+MiniStd Call 10/2019
+====================
+
+------
+Agenda
+------
+
+Follow-up
+=========
+
+*  Subdomain for CAIRR
+
+New topics
+==========
+
+*  Inclusion of species information for cell and locus annotations
+   (`#137`_)
+*  Human population genetics extension, a proposed more generalized
+   implementation of the country level information discussed during
+   `MiniStd Call 09/2019`_.
+
+
+-------
+Minutes
+-------
+
+Meta
+====
+
+*  Date: Fri, 2019-10-11 13:30 UTC
+*  Present: Ahmad, Brian, Christian, Florian, Francisco, John, Sri
+
+Follow-up
+=========
+
+*  The CAIRR subdomain [http://cairr.airr-community.org] is now live and
+   the recommended way to link to CAIRR in AIRR-C manuscripts, docs,
+   etc.
+
+New topics
+==========
+
+*  Inclusion of species information for cell and locus annotations
+   (`#137`_): Cells and nucleic acids in a sample might not be of
+   ``organism`` origin (e.g., BM chimeric mice or animals with human Ig
+   loci as transgenes). To allow for annotation of this information, we
+   plan to introduce the ``cell_species`` and ``locus_species`` fields.
+   The fields will be OPTIONAL, i.e., they do not have to be present,
+   which is in contrast to other MiAIRR fields that MUST be present, but
+   CAN contain a NULL-like value. Please leave comments in `#260`_ until
+   the next call.
+*  Human population genetics extension (`#264`_):
+
+   *  MiAIRR currently contains a number of fields that do not
+      necessarily meet the stringent definition for being "minimal",
+      i.e. being independent of the experimental design of a study (e.g.
+      are subjects humans?). To prevent potentially erroneous or
+      misleading annotation for the sake of "standard compliance", it
+      seems appropriate to move such fields out of the core standard and
+      into separate extensions (XTs). These will then be required to be
+      used in a modular fashion if certain conditions are met by a
+      study. This will also solve (some) of the issues related to a
+      single field requiring multiple ontologies, depending on the
+      context.
+   *  Suggestion is to nove the following fields, which are rather
+      specific for human populations, into a "Human Population Genetics"
+      extension. If currently present, the fields will be removed from
+      the core standard in AIRRv2.0.
+
+      *  ``ancestry_population``
+      *  ``ethnicity``
+      *  ``race``
+      *  ``country_birth`` (defined in `#265`_)
+      *  ``collection_country`` (defined in `#265`_ )
+   
+
+====================
 MiniStd Call 11/2019
 ====================
 
@@ -12,7 +89,6 @@ Follow-up
 *  Species information for cell and locus annotations (`#137`_)
 *  Rename MiAIRR field "Organism" to "Species" (`#266`_)
 *  Human Population Genetics XT (`#264`_)
-*  HVP data @ NCBI?
 
 
 -------
