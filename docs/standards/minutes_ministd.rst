@@ -1,4 +1,79 @@
 ====================
+MiniStd Call 09/2019
+====================
+
+------
+Agenda
+------
+
+Decisions
+=========
+
+*  Changes to the "Age" field to accommodate for age ranges (`#192`_)
+
+
+Follow-up
+=========
+
+*  Subdomain for CAIRR at airr-community.org
+
+
+New topics
+==========
+
+*  General handling of quantities with ranges and different units
+*  Geographical locations: How to annotate country level information?
+*  Should relations between subjects be moved into ``Study``?
+
+
+-------
+Minutes
+-------
+
+Meta
+====
+
+*  Date: Fri, 2019-09-13 13:30 UTC
+*  Present: Ahmad, Brian, Christian, Florian, Francisco, John, Marcos,
+   Sri
+
+
+Decisions
+=========
+
+*  The replacement of the field ``age`` with ``age_min``, ``age_max``
+   and ``age_unit`` was **approved**. This considered to be a change in
+   data representation, not in content, thus it will enter the standard
+   in AIRRv1.3.
+
+
+Follow-up
+=========
+
+*  Subdomain for CAIRR: The subdomain cairr.airr-community.org has been
+   approved by ExCom. Brian has setup the domain, but still needs a URL
+   to redirect to.
+
+
+New topics
+==========
+
+*  General handling of quantities with ranges and different units: We
+   will use `#192`_ as an example in the docs on how to handle ranges
+   and multiple units for a field.
+*  We agreed that adding country information regarding place of birth
+   (``Subject``) and place of sampling (``Sample``) would be a valuable
+   addition. Will look into encoding of this information and MiAIRR
+   status and discuss again in `MiniStd Call 10/2019`_.
+*  Should relations between subjects be moved into ``Study``: While
+   there was a consensus that this would simplify working with more
+   complex relationships (e.g. grand-parents to grand-children), there
+   was also doubt whether there is a real need for change at this point.
+   Therefore it was decided to shelf this topic for now, but
+   nevertheless create a ticket to document it (`#308`_).
+
+
+====================
 MiniStd Call 10/2019
 ====================
 
@@ -9,7 +84,8 @@ Agenda
 Follow-up
 =========
 
-*  Subdomain for CAIRR
+*  Subdomain for CAIRR at airr-community.org
+
 
 New topics
 ==========
@@ -36,7 +112,7 @@ Follow-up
 
 *  The CAIRR subdomain [http://cairr.airr-community.org] is now live and
    the recommended way to link to CAIRR in AIRR-C manuscripts, docs,
-   etc.
+   etc. Technical info: This is done via a HTTP 302 redirect.
 
 New topics
 ==========
@@ -667,6 +743,7 @@ New Topics
 .. ======================================================================
 
 .. _`#137`: https://github.com/airr-community/airr-standards/issues/137
+.. _`#192`: https://github.com/airr-community/airr-standards/issues/192
 .. _`#206`: https://github.com/airr-community/airr-standards/issues/206
 .. _`#211`: https://github.com/airr-community/airr-standards/issues/211
 .. _`#248`: https://github.com/airr-community/airr-standards/issues/248
@@ -681,6 +758,7 @@ New Topics
 .. _`#281`: https://github.com/airr-community/airr-standards/pull/281
 .. _`#297`: https://github.com/airr-community/airr-standards/issues/297
 .. _`#305`: https://github.com/airr-community/airr-standards/issues/305
+.. _`#308`: https://github.com/airr-community/airr-standards/issues/308
 .. _`#310`: https://github.com/airr-community/airr-standards/issues/310
 .. _`#318`: https://github.com/airr-community/airr-standards/pull/318
 .. _`#319`: https://github.com/airr-community/airr-standards/pull/319
