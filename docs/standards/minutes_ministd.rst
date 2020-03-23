@@ -690,7 +690,7 @@ Follow-up
    which is slated for v2.0. DataRep will also discuss how to annotate
    the renaming (`#248`_).
 *  Object definition ``cell`` and related data schema: Schema is now
-   in branch XXX. We however need to discuss about:
+   available for review in `#358`_. We however need to discuss about:
 
    *  "True" ``Repertoires`` and "Meta"-``Repertoires`` (the former ones
       contain each cell object only once, the latter ones can contain
@@ -725,7 +725,7 @@ Follow-up
 New Topics
 ==========
 
-*  Merger of AIRR Standards WG: ComRepo, DataRep and MiniStd currently
+*  Merger of AIRR Standards WGs: ComRepo, DataRep and MiniStd currently
    have 4--5 calls every month in which a core group of 5--6 people
    frequently talk about similar topics to an extended group of
    participants. We would like to see whether we can increase the
@@ -736,6 +736,64 @@ New Topics
    if not necessary). If this works out and lead to more fun, less
    meetings and/or increased productivity, we would propose an
    official merger of the WGs at the next AIRR-C meeting.
+
+
+-------
+Minutes
+-------
+
+Meta
+====
+
+* Date: Fri, 2020-03-20 13:30 UTC
+* Present: Christian Ahmad, Lindsay, Felix, Francisco, Lindsay, Marcos,
+  Florian, Sri
+
+
+Decision
+========
+
+*  MiAIRR requirement levels:
+
+   *  The requirement level ``optional`` will be renamed to ``defined``
+   *  We will start with a binary definition of "MiAIRR compliance",
+      which will REQUIRE that all ``essential`` fields are present and
+      contain non-NULL-like values and will REQUIRE that all
+      ``important`` fields are present (but can be NULL-like).
+   *  In general, our documentation will encourage people to provide
+      information on ``important`` fields. However, for the sake of
+      compliance, entry screens MAY default these fields to NULL-like.
+   *  The definitions will be documented in `#319`_. This should include
+      the distinction between per-field and use case-based requirements.
+   *  We will start working on use cases soon, probably once AIRRv2 is
+      published.
+
+
+Follow-up
+=========
+
+*  Object definition ``cell`` and related data schema:
+
+   *  Proposed schema is now available for review in `#358`_.
+   *  There is a consensus that overlapping populations/repertoires need
+      to be addressed and that two tiers of ``Repertoire`` objects could
+      be a solution. Will follow up in XXX.
+   *  ``rearrangement`` should rather represent the rearranged DNA, i.e.
+      one biological entity per cell, while transcript and reads
+      are derivatives or measurement artifacts. This would mean that
+      ``rearrangement`` is always after UMI- and CellID collapsing. This
+      needs further dicussion with the other AIRR Standard WGs, will
+      follow-up in YYY.
+
+*  Migration of agenda and minutes to Github: No objections so far, will
+   finalize migration until next call.
+
+
+New Topics
+==========
+
+*  Merger of AIRR Standard WGs: Feedback is positive. Will work out a
+   new call schedule with the other WGs and notify ExCom.
 
 
 .. ======================================================================
@@ -767,6 +825,7 @@ New Topics
 .. _`#328`: https://github.com/airr-community/airr-standards/issues/328
 .. _`#330`: https://github.com/airr-community/airr-standards/issues/330
 .. _`#342`: https://github.com/airr-community/airr-standards/issues/342
+.. _`#358`: https://github.com/airr-community/airr-standards/pull/358
 
 
 .. _`Christian's comment of 2019-12-24`: https://github.com/airr-community/airr-standards/issues/273#issuecomment-568649516
