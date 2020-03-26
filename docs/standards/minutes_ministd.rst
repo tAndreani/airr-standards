@@ -763,10 +763,11 @@ Decision
    *  In general, our documentation will encourage people to provide
       information on ``important`` fields. However, for the sake of
       compliance, entry screens MAY default these fields to NULL-like.
-   *  The definitions will be documented in `#319`_. This should include
-      the distinction between per-field and use case-based requirements.
-   *  We will start working on use cases soon, probably once AIRRv2 is
-      published.
+   *  The definitions will be documented via `#319`_. This should
+      include the distinction between field- and use case-based
+      requirements.
+   *  We will start working on use cases in the intermediate future,
+      probably once AIRRv2 is out.
 
 
 Follow-up
@@ -777,13 +778,13 @@ Follow-up
    *  Proposed schema is now available for review in `#358`_.
    *  There is a consensus that overlapping populations/repertoires need
       to be addressed and that two tiers of ``Repertoire`` objects could
-      be a solution. Will follow up in XXX.
+      be a solution. Will follow up in `#361`_.
    *  ``rearrangement`` should rather represent the rearranged DNA, i.e.
       one biological entity per cell, while transcript and reads
       are derivatives or measurement artifacts. This would mean that
       ``rearrangement`` is always after UMI- and CellID collapsing. This
       needs further dicussion with the other AIRR Standard WGs, will
-      follow-up in YYY.
+      follow-up in `#360`_.
 
 *  Migration of agenda and minutes to Github: No objections so far, will
    finalize migration until next call.
@@ -826,6 +827,8 @@ New Topics
 .. _`#330`: https://github.com/airr-community/airr-standards/issues/330
 .. _`#342`: https://github.com/airr-community/airr-standards/issues/342
 .. _`#358`: https://github.com/airr-community/airr-standards/pull/358
+.. _`#360`: https://github.com/airr-community/airr-standards/issues/360
+.. _`#361`: https://github.com/airr-community/airr-standards/issues/361
 
 
 .. _`Christian's comment of 2019-12-24`: https://github.com/airr-community/airr-standards/issues/273#issuecomment-568649516
