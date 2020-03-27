@@ -295,7 +295,7 @@ Subject:
                 nullable: false
                 set: 1
                 subset: subject
-                name: Organism
+                name: Species
                 format: ontology
                 ontology:
                     draft: false
