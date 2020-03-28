@@ -798,6 +798,22 @@ New Topics
    new call schedule with the other WGs and notify ExCom.
 
 
+====================
+MiniStd Call 04/2020
+====================
+
+------
+Agenda
+------
+
+New Topics
+==========
+
+*  Approach journals/publishers again to see whether they would be
+   willing to make compliance to AIRR Standards a requirement for
+   publication.
+
+
 .. ======================================================================
 .. == Unlisted Links to AIRR Standards Github issues and pull requests ==
 .. ======================================================================
