@@ -336,7 +336,7 @@ Follow-up
    ``https://www.ncbi.nlm.nih.gov/nuccore/?term=AIRR%5BKeyword%5D``
    and show TLS record counts aggregated by BioProject ID:
 
-.. _table191201
+.. _table191201:
 
 +-------------+---------+
 | BioProject  | records |
@@ -745,9 +745,9 @@ Minutes
 Meta
 ====
 
-* Date: Fri, 2020-03-20 13:30 UTC
-* Present: Christian Ahmad, Lindsay, Felix, Francisco, Lindsay, Marcos,
-  Florian, Sri
+*  Date: Fri, 2020-03-20 13:30 UTC
+*  Present: Christian Ahmad, Lindsay, Felix, Francisco, Lindsay, Marcos,
+   Florian, Sri
 
 
 Decisions
@@ -755,14 +755,15 @@ Decisions
 
 *  MiAIRR requirement levels:
 
-   *  The requirement level ``optional`` will be renamed to ``defined``
+   *  The requirement level ``optional`` will be renamed to ``defined``.
+      Levels will be introduced via `#342`_.
    *  We will start with a binary definition of "MiAIRR compliance",
       which will REQUIRE that all ``essential`` fields are present and
-      contain non-NULL-like values and will REQUIRE that all
-      ``important`` fields are present (but can be NULL-like).
+      contain non-NULL-LIKE values and will REQUIRE that all
+      ``important`` fields are present (but can be NULL-LIKE).
    *  In general, our documentation will encourage people to provide
       information on ``important`` fields. However, for the sake of
-      compliance, entry screens MAY default these fields to NULL-like.
+      compliance, entry screens MAY default these fields to NULL-LIKE.
    *  The definitions will be documented via `#319`_. This should
       include the distinction between field- and use case-based
       requirements.
@@ -825,14 +826,14 @@ New Topics
 .. _`#324`: https://github.com/airr-community/airr-standards/pull/324
 .. _`#328`: https://github.com/airr-community/airr-standards/issues/328
 .. _`#330`: https://github.com/airr-community/airr-standards/issues/330
-.. _`#342`: https://github.com/airr-community/airr-standards/issues/342
+.. _`#342`: https://github.com/airr-community/airr-standards/pull/342
 .. _`#358`: https://github.com/airr-community/airr-standards/pull/358
 .. _`#360`: https://github.com/airr-community/airr-standards/issues/360
 .. _`#361`: https://github.com/airr-community/airr-standards/issues/361
 
 
 .. _`Christian's comment of 2019-12-24`: https://github.com/airr-community/airr-standards/issues/273#issuecomment-568649516
-.. _`Sri's comment of 2020-02-26`_:    https://github.com/airr-community/airr-standards/issues/320#issuecomment-591416785
+.. _`Sri's comment of 2020-02-26`: https://github.com/airr-community/airr-standards/issues/320#issuecomment-591416785
 
 .. == Other Unlisted Links ==
 .. _`CEDAR Templates`: https://openview.metadatacenter.org/templates/https:%2F%2Frepo.metadatacenter.org%2Ftemplates%2Fea716306-5263-4f7a-9155-b7958f566933
