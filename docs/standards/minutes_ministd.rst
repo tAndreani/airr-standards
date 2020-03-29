@@ -1,4 +1,69 @@
 ====================
+MiniStd Call 08/2019
+====================
+
+------
+Agenda
+------
+
+New topics
+==========
+
+*  Restart work on the manuscript, points to discuss
+
+   *  Should the focus be shifted from the current "historical review
+      plus scXT" to a more single-cell focused text?
+   *  Should -- in analogy to the MiAIRR manuscript -- we provide an
+      implementation of the standard, in this case based on the ADC API?
+   *  Should we include currently ongoing efforts aiming to provide a
+      more formalized structure for Set 5 (data processing) into the
+      manuscript?
+
+
+Follow-up
+=========
+
+*  CAIRR in AIRR documentation
+
+
+-------
+Minutes
+-------
+
+Meta
+====
+
+*  Date: Fri, 2019-08-09 13:30 UTC
+*  Present: Brian, Christian, Florian, Francisco, John G., Marcos, Sri
+
+
+New topics
+==========
+
+*  Discussed manuscript, re-adjusted its focus along the following
+   lines:
+
+   *  Manuscript will be restructured to give more emphasis on
+      single-cell applications.
+   *  Being able to present an implementation was an important point for
+      the MiAIRR manuscript, therefore we should strive to also have one
+      for the scXTs. This is currently worked on at DKFZ as an extension
+      to the ADC API.
+   *  Structuring Set 5 will be a joint activity with the DataRep and
+      Software WGs. As this is likely be a publication on its own, it
+      will be handled separately from the current manuscript.
+
+
+Follow-up
+=========
+
+*  CAIRR in AIRR documentation: Docs have been updated to increase the
+   visibility of CAIRR submission pipeline (`#223`_). The question of an
+   "airr-community.org" subdomain redirecting to CEDAR will be discussed
+   with Comm SC.
+
+
+====================
 MiniStd Call 09/2019
 ====================
 
@@ -822,6 +887,7 @@ New Topics
 .. _`#192`: https://github.com/airr-community/airr-standards/issues/192
 .. _`#206`: https://github.com/airr-community/airr-standards/issues/206
 .. _`#211`: https://github.com/airr-community/airr-standards/issues/211
+.. _`#223`: https://github.com/airr-community/airr-standards/pull/223
 .. _`#248`: https://github.com/airr-community/airr-standards/issues/248
 .. _`#258`: https://github.com/airr-community/airr-standards/issues/258
 .. _`#260`: https://github.com/airr-community/airr-standards/pull/260
