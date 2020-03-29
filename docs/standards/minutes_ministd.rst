@@ -1,4 +1,52 @@
 ====================
+MiniStd Call 07/2019
+====================
+
+------
+Agenda
+------
+
+Follow-up
+=========
+
+*  Current state of manuscript
+
+
+New topics
+==========
+
+*  Discuss about possibilities to submit data to NCBI and how to
+   retrieve it from there: Discoverability of data on SRA; keywords
+   currently only apply to TLS and Genbank.
+*  CAIRR in AIRR documentation
+
+
+-------
+Minutes
+-------
+
+Meta
+====
+
+*  Date: Fri, 2019-07-12 13:30 UTC
+*  Present: Ahmad, Christian, Erand, Florian, Francisco, Marcos, Nina
+
+
+New topics
+==========
+
+*  CAIRR in AIRR documentation: Ahmad and Marcos will follow-up with John
+   regarding potential changes in the AIRR Docs to increase the
+   visibility of CAIRR submission pipeline. Based on this, they will
+   create a PR against the AIRR Standards repo (`#223`_).
+*  Standards development: Erand will send around information regarding
+   standardization workflows currently under development by Enkeledja's
+   group. There seems to be limited overlap with MiniStd's products at
+   this point, but we will discuss again about processes in the next
+   call.
+
+
+====================
 MiniStd Call 08/2019
 ====================
 
