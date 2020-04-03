@@ -919,6 +919,18 @@ MiniStd Call 04/2020
 Agenda
 ------
 
+*  This is our first joint call with DataRep and ComRepo. Therefore we
+   will keep our content to the minimum to allow for enough time to
+   discuss organizational questions
+
+
+Follow-up
+=========
+
+*  MiAIRR requirement levels: Changes to AIRR schema and the related
+   documentation have now been merged (`#297`_, `#319`_, `#342`_).
+
+
 New Topics
 ==========
 
