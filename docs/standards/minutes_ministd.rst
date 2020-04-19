@@ -859,8 +859,8 @@ Meta
 ====
 
 *  Date: Fri, 2020-03-20 13:30 UTC
-*  Present: Christian Ahmad, Lindsay, Felix, Francisco, Lindsay, Marcos,
-   Florian, Sri
+*  Present: Ahmad, Christian, Felix, Florian, Francisco, Lindsay,
+   Marcos, Sri
 
 
 Decisions
@@ -919,11 +919,6 @@ MiniStd Call 04/2020
 Agenda
 ------
 
-*  This is our first joint call with DataRep and ComRepo. Therefore we
-   will keep our content to the minimum to allow for enough time to
-   discuss organizational questions
-
-
 Follow-up
 =========
 
@@ -937,6 +932,54 @@ New Topics
 *  Approach journals/publishers again to see whether they would be
    willing to make compliance to AIRR Standards a requirement for
    publication.
+*  This is our first joint call with DataRep and ComRepo. Therefore we
+   will keep our content to the minimum to allow for enough time to
+   discuss organizational questions
+
+
+-------
+Minutes
+-------
+
+Meta
+====
+
+*  Date: Mon, 2020-04-06 18:00 UTC
+*  Present: Brian, Chaim, Christian, Felix, Florian, Francisco, Jason,
+   Ken, Lindsay, Scott, Susanna, Uri and probably three more people...
+*  Note: This was a joint call with DataRep and ComRepo
+
+
+New Topics
+==========
+
+*  Approach journals/publishers: No luck so far with Nature Immunology,
+   will try Frontiers next. Felix will prepare a draft letter.
+*  Joint calls: The current Monday spot works fine for everyone on the
+   call, no complains so far from people who could not make it. Will
+   continue to use Google Meet unless someone objects. The groups will
+   remain separate for the next couple of months, if this format is
+   successful we will propose an official merger for the GA in December
+   to become the "AIRR Standards WG".
+
+
+====================
+MiniStd Call 05/2020
+====================
+
+------
+Agenda
+------
+
+New Topics
+==========
+
+*  Deprecate MiAIRR field names as a separate entity: We have maintained
+   a split between MiAIRR field names (which are human readable) and
+   DataRep/Schema fields (which serve as unique and unambiguous keys)
+   for the last two years. Given the recent decisions on
+   Set 6/Rearrangement and the fact that everything is now represented
+   in a single schema, this split appears unnecessary (`#380`_).
 
 
 .. ======================================================================
@@ -972,6 +1015,7 @@ New Topics
 .. _`#358`: https://github.com/airr-community/airr-standards/pull/358
 .. _`#360`: https://github.com/airr-community/airr-standards/issues/360
 .. _`#361`: https://github.com/airr-community/airr-standards/issues/361
+.. _`#380`: https://github.com/airr-community/airr-standards/issues/380
 
 
 .. _`Christian's comment of 2019-12-24`: https://github.com/airr-community/airr-standards/issues/273#issuecomment-568649516
