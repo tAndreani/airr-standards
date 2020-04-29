@@ -980,6 +980,20 @@ New Topics
    for the last two years. Given the recent decisions on
    Set 6/Rearrangement and the fact that everything is now represented
    in a single schema, this split appears unnecessary (`#380`_).
+*  Results of OntoVoc Sprint 04/2020: The OntoVoc team had several
+   in-depth discussions on how to make an ontology's concept IDs/IRIs
+   interoperable between repositories. The suggested solution is the use
+   of `Compact URIs` ("CURIEs"), which look like ``NCBITAXON:9258``,
+   where the prefix (before the colon) is the substitute for the longer
+   and typically invariable part of a concept's IRI. This would also
+   allow repositories to resolve to different IRIs, depending on the
+   their preferences (`#385`_).
+
+
+Follow-up
+=========
+
+*  Approach journals/publishers to recommend MiAIRR
 
 
 .. ======================================================================
@@ -1016,7 +1030,7 @@ New Topics
 .. _`#360`: https://github.com/airr-community/airr-standards/issues/360
 .. _`#361`: https://github.com/airr-community/airr-standards/issues/361
 .. _`#380`: https://github.com/airr-community/airr-standards/issues/380
-
+.. _`#385`: https://github.com/airr-community/airr-standards/pull/385
 
 .. _`Christian's comment of 2019-12-24`: https://github.com/airr-community/airr-standards/issues/273#issuecomment-568649516
 .. _`Sri's comment of 2020-02-26`: https://github.com/airr-community/airr-standards/issues/320#issuecomment-591416785
@@ -1025,3 +1039,4 @@ New Topics
 .. _`CEDAR Templates`: https://openview.metadatacenter.org/templates/https:%2F%2Frepo.metadatacenter.org%2Ftemplates%2Fea716306-5263-4f7a-9155-b7958f566933
 .. _`INSDC Feature Table`: http://www.insdc.org/documents/feature-table
 .. _`BioSample attributes`: https://www.ncbi.nlm.nih.gov/biosample/docs/attributes/
+.. _`Compact URIs`: https://www.w3.org/TR/curie/
