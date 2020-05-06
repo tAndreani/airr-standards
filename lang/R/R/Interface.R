@@ -261,3 +261,43 @@ write_rearrangement <- function(data, file, base=c("1", "0"), ...) {
 write_alignment <- function(data, file, base=c("1", "0"), ...) {
     write_airr(data, file, base=base, schema=AlignmentSchema, ...)
 }
+
+
+#' Read an AIRR TSV
+#' 
+#' \code{read_airr} reads a TSV containing AIRR records.
+#'
+#' @param    file    input file path.
+#' @param    schema  \code{Schema} object defining the output format.
+#' @param    validate whether to validate data
+#' 
+#' @return   
+#'                   
+#' @seealso  
+#' See \link{Schema} for the AIRR schema object definition.
+#' 
+#' @examples
+#' # Get path to the rearrangement-example file
+#' file <- system.file("extdata", "good_repertoire.airr.yaml", package="airr")
+#' read_repertoire(file)
+#' @export
+read_repertoire <- function(file, schema=RepertoireSchema) {
+    
+    # determine file type from extension and use appropriate loader
+    ext <- tools::file_ext(file)
+    
+    if (ext %in% c('yaml','yml')) {
+        rep <- yaml.load_file(file)
+    } else if (ext == 'json') {
+        rep <- fromJSON(file=file)
+    } else {
+        stop("Unexpected file type: ", ext,". Expecting 'yaml','yml' or 'json'.")
+    }
+    
+    if ("Repertoire" != names(rep)) {
+        stop("Repertoire object cannot be found in the file")
+    }
+    
+    # return repertoire
+    rep[['Repertoire']]
+}

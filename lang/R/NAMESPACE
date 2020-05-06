@@ -2,10 +2,12 @@
 
 export(AlignmentSchema)
 export(RearrangementSchema)
+export(RepertoireSchema)
 export(load_schema)
 export(read_airr)
 export(read_alignment)
 export(read_rearrangement)
+export(read_repertoire)
 export(validate_airr)
 export(write_airr)
 export(write_alignment)

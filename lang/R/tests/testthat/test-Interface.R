@@ -6,6 +6,10 @@ rearrangement_file <- file.path("..", "data-tests", "toy_data.tsv")
 bad_rearrangement_file <- file.path("..", "data-tests", "bad_data.tsv")
 #bad_rearrangement_file <- file.path("tests", "data-tests", "bad_data.tsv")
 
+# Toy file pointer - Good repertoire
+good_repertoire_file <- file.path("..", "data-tests", "good_repertoire.airr.yaml")
+#good_repertoire_file <- file.path("tests", "data-tests", "good_repertoire.airr.yaml")
+
 # Expected warnings for bad_rearrangement_file
 expected_w <- c(
     "Warning: File is missing AIRR mandatory field(s): sequence",            
@@ -66,4 +70,13 @@ test_that("write_airr writes a bad file, with warnings, with logicals T/T", {
                 c("T","T","T","","T","T","T","T","T","T","T"))
     expect_equal(reload_tbl[['productive']],
                  c("","T","F","T","T","F","F","F","T","T","T"))
+})
+
+
+context("Repertoire I/O - good data")
+
+
+test_that("read_repertoire loads a list", {
+    rep <- read_repertoire(good_repertoire_file)
+    expect_true(is.list(rep))
 })
