@@ -85,6 +85,7 @@ setMethod("$",
 #'   \item   \code{"NucleicAcidProcessing"}
 #'   \item   \code{"RawSequenceData"}
 #'   \item   \code{"SoftwareProcessing"}
+#'   \item   \code{"Repertoire"}
 #' }
 #'    
 #' @seealso  See \link{Schema} for the return object.
@@ -117,7 +118,10 @@ load_schema <- function(definition) {
     optional <- setdiff(fields, required)
     
     # Rename type and clean description
-    types <- c("string"="character", "boolean"="logical", "integer"="integer", "number"="double")
+    types <- c("string"="character", 
+               "boolean"="logical", 
+               "integer"="integer", 
+               "number"="double")
     for (f in fields) {
         x <- properties[[f]][["type"]]
         y <- properties[[f]][["description"]]
@@ -125,9 +129,12 @@ load_schema <- function(definition) {
         properties[[f]][["description"]] <- stri_trim(y)
     }
     
-    return(new("Schema", required=required, optional=optional, properties=properties, info=info))
+    return(new("Schema", 
+               required=as.character(required), 
+               optional=optional, 
+               properties=properties, 
+               info=info))
 }
-
 
 #### Data ####
 
@@ -157,3 +164,8 @@ AlignmentSchema <- load_schema("Alignment")
 #' @rdname    Schema-class
 #' @export
 RearrangementSchema <- load_schema("Rearrangement")
+
+#' @details   \code{RepertoireSchema}: AIRR Rearrangement \code{Schema}.
+#' @rdname    Schema-class
+#' @export
+RepertoireSchema <- load_schema("Repertoire")
