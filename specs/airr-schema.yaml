@@ -2828,5 +2828,5 @@ Receptor:
                     reactivity_unit:
                         type: string
                         description: >
-			   The physical unit of the measurement
+                           The physical unit of the measurement
                         example: M or kJ mol-1
