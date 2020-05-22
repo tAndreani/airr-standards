@@ -2809,7 +2809,7 @@ Receptor:
                 miairr: defined
                 nullable: true
                 adc-api-optional: true
-	reactivity_measurements:
+        reactivity_measurements:
             type: array
             description: >
                 records of reactivity measurement
@@ -2825,10 +2825,8 @@ Receptor:
                         description: >
                            The absolute (processed) value of the measurement.
                         example: 357.89
-		    reactivity_unit:
-		        type: string
-			description: >
+                    reactivity_unit:
+                        type: string
+                        description: >
 			   The physical unit of the measurement
-			example: M or kJ mol-1
-
-
+                        example: M or kJ mol-1
