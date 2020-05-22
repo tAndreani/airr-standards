@@ -2809,7 +2809,7 @@ Receptor:
                 miairr: defined
                 nullable: true
                 adc-api-optional: true
-		reactivity_measurements:
+	reactivity_measurements:
             type: array
             description: >
                 records of reactivity measurement
