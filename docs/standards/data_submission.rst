@@ -44,30 +44,34 @@ process, and provide a real-time record of affirmed sequences.
 
     OGRDB <../ogrdb/ogrdb>
 
-Data Query and Download
------------------------
+Data Query and Download from the AIRR Data Commons
+--------------------------------------------------
 
 Submission of AIRR-seq datasets to public data repositories means that other
 researchers can query, download and reuse that data for novel analyses.
 
-**AIRR Data Commons**
+AIRR Data Commons
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-These data repositories all implement the AIRR Data Commons (ADC) API programmatic access to
-query and download AIRR-seq data. 
+The AIRR Data Commons is a network of distributed repositories that store AIRR-seq data and
+adhere to the AIRR Community standards. We define the AIRR Data Commons as consisting of
+the set of repositories that both:
 
-+ iReceptor Public Archive
++ Adhere to the `AIRR Common Repositories Working Group recommendations`_ for promoting, sharing, and use of AIRR-seq data.
++ Implement the :ref:`ADC API <DataCommonsAPI>` as a programmatic mechanism to access that data.
 
-+ VDJServer Community Data Portal
+More information on repositories in the AIRR Data Commons and how to query these repositories
+can be found on the AIRR Data Commons page:
 
-**Querying the AIRR Data Commons**
+.. toctree::
+    :maxdepth: 1
 
-Each of the repositories above can be queried directly using the ADC API <../../adc-api>. In addition, the
-following tools and platforms implement web based user interfaces that use the ADC API to query repositories
-in the AIRR Data Commons:
+    AIRR Data Commons <../api/adc>
 
-+ iReceptor Gateway <../miairr/ireceptor>
+.. _`AIRR Common Repositories Working Group recommendations`: https://github.com/airr-community/common-repo-wg/blob/master/recommendations.md
 
-**Other Public AIRR-Seq Repositories**
+Other Public AIRR-Seq Repositories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are additional data repositories that provide access to AIRR-seq data but which
 did not implement the ADC API for programmatic access. Information about some of these
@@ -75,7 +79,8 @@ repositories are provided in a `B-T.CR forum post`_.
 
 .. _`B-T.CR forum post`: https://b-t.cr/t/publicly-available-airr-seq-data-repositories/610
 
-**Germline Gene Inference and Usage**
+Germline Gene Inference and Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 + :ref:`OGRDB <OGRDB>` provides a list of alleles affirmed by the AIRR Community's
   Inferred Allele Review Committee, together with supporting information.

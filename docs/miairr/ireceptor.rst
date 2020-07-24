@@ -7,21 +7,21 @@ Introduction to iReceptor
 iReceptor is a platform for storing, sharing, and exploring AIRR-seq data according to
 the AIRR Community standards.
 
-+ `iReceptor Website`_
++ `iReceptor Website`_ (General information)
 
-+ `iReceptor Gateway`_
++ `iReceptor Gateway`_ (AIRR Data Commons data query and federation)
 
-+ `iReceptor Turnkey GitHUb`_
++ `iReceptor Repositories`_ (AIRR Data Commons repositories)
 
-+ `Email iReceptor`_ for support.
++ `iReceptor Turnkey GitHUb`_ (Software)
+
++ `Email iReceptor`_ (Contact).
 
 References
 ==========
-
-.. [Corrie et al.] Corrie *et al*. 
-iReceptor: A platform for querying and analyzing antibody/B‐cell
-and T‐cell receptor repertoire data across federated repositories.
-Immunol Rev. 2018 Jul;284(1):24-41. `DOI: 10.1111/imr.12666`_
+.. [Corrie_2018] Corrie *et al*. iReceptor: A platform for querying and analyzing antibody/B‐cell
+    and T‐cell receptor repertoire data across federated repositories.
+    Immunol Rev. 2018 Jul;284(1):24-41. `DOI: 10.1111/imr.12666`_
 
 .. _`DOI: 10.1111/imr.12666`: https://doi.org/10.1111/imr.12666
 
@@ -29,7 +29,8 @@ Immunol Rev. 2018 Jul;284(1):24-41. `DOI: 10.1111/imr.12666`_
 
 .. _`iReceptor Website`: http://www.ireceptor.org
 
+.. _`iReceptor Repositories`: http://www.ireceptor.org/repositories
+
 .. _`iReceptor Gateway`: https://gateway.ireceptor.org
 
 .. _`iReceptor Turnkey GitHub`: https://github.com/sfu-ireceptor/turnkey-service-php
-

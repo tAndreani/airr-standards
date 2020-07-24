@@ -216,9 +216,8 @@ def load_repertoire(filename, validate=False, debug=False):
       debug (bool): debug flag. If True print debugging information to standard error.
 
     Returns:
-      dictionary of repertoire objects.
+      list: list of Repertoire dictionaries.
     """
-
     # Because the repertoires are read in completely, we do not bother
     # with a reader class.
     md = None
@@ -244,8 +243,15 @@ def load_repertoire(filename, validate=False, debug=False):
     # validate if requested
     if validate:
         reps = md['Repertoire']
+        i = 0
         for r in reps:
-            RepertoireSchema.validate_object(r)
+            try:
+                RepertoireSchema.validate_object(r)
+            except ValidationError as e:
+                valid = False
+                if debug:
+                    sys.stderr.write('%s has repertoire at array position %i with validation error: %s\n' % (filename, i, e))
+            i = i + 1
 
     # we do not perform any additional processing
     return md
@@ -277,18 +283,6 @@ def validate_repertoire(filename, debug=False):
         valid = False
         if debug:
             sys.stderr.write('%s has validation error: %s\n' % (filename, e))
-
-    # Validate each repertoire
-    reps = data['Repertoire']
-    i = 0
-    for r in reps:
-        try:
-            RepertoireSchema.validate_object(r)
-            i = i + 1
-        except ValidationError as e:
-            valid = False
-            if debug:
-                sys.stderr.write('%s has repertoire at array position %i with validation error: %s\n' % (filename, i, e))
 
     return valid
 
@@ -340,7 +334,7 @@ def repertoire_template():
     structure with all of the fields and all values set to None or empty string.
 
     Returns:
-      object: Empty repertoire object
+      object: empty repertoire object.
     """
     
     # TODO: I suppose we should dynamically create this from the schema

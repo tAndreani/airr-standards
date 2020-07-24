@@ -339,6 +339,11 @@ class Schema:
             if f in self.required and is_missing_key:
                 raise ValidationError('Required field %s is missing' %(full_field))
 
+            # check if identifier field
+            if xairr and xairr.get('identifier'):
+                if is_missing_key:
+                    raise ValidationError('Identifier field %s is missing' %(full_field))
+
             # check nullable requirements
             if is_null:
                 if not xairr:
@@ -426,11 +431,9 @@ class Schema:
 
 
 # Preloaded schema
-AlignmentSchema = Schema('Alignment')
-RearrangementSchema = Schema('Rearrangement')
-RepertoireSchema = Schema('Repertoire')
-
 CachedSchema = {
+    'Alignment': Schema('Alignment'),
+    'Rearrangement': Schema('Rearrangement'),
     'Repertoire': Schema('Repertoire'),
     'Ontology': Schema('Ontology'),
     'Study': Schema('Study'),
@@ -444,3 +447,8 @@ CachedSchema = {
     'DataProcessing': Schema('DataProcessing'),
     'SampleProcessing': Schema('SampleProcessing')
 }
+
+AlignmentSchema = CachedSchema['Alignment']
+RearrangementSchema = CachedSchema['Rearrangement']
+RepertoireSchema = CachedSchema['Repertoire']
+
