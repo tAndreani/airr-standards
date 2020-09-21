@@ -2809,6 +2809,22 @@ Receptor:
                 miairr: defined
                 nullable: true
                 adc-api-optional: true
+        heavy_chain_aa:
+            type: string
+            description: >
+                Amino acid of heavy chain.
+            x-airr:
+                miairr: defined
+                nullable: true
+                adc-api-optional: true
+        light_chain_aa:
+            type: string
+            description: >
+                Amino acid sequences of light chain.
+            x-airr:
+                miairr: defined
+                nullable: true
+                adc-api-optional: true
         reactivity_measurements:
             type: array
             description: >
